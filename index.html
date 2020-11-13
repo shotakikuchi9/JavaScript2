@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript2</title>
+    <style>
+      input {
+        width:170px;
+      }
+      ul {
+        list-style:none;
+        padding-left:0%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>FizzBuzz問題</h1>
+
+    <form>
+      <div>
+        <label for="Fizz">FizzNum:</label>
+        <input type="text" name="FizzNum" id="Fizz" placeholder="整数値を入力してください"><br>
+      </div>
+      <div>
+        <label for="Buzz">BuzzNum:</label>
+        <input type="text" name="BuzzNum" id="Buzz" placeholder="整数値を入力してください"><br>
+      </div>
+    </form>
+
+    <button>実行</button>
+    <p>【出力】</p>
+    <ul id="ul">
+
+    </ul>
+
+    <script>
+      "use strict";
+
+      const fizzNum = document.getElementById("Fizz");
+      const buzzNum = document.getElementById("Buzz");
+
+      console.log(Number(buzzNum.value));
+   
+      function FizzBuzz() {
+        if (Number.isInteger(Number(fizzNum.value)) && Number.isInteger(Number(buzzNum.value)) && Number(fizzNum.value) !== 0 && Number(buzzNum.value) !== 0 ) {
+          for (let i = 1; i < 100; i++) {
+            if (i % fizzNum.value === 0 && i % buzzNum.value === 0){ 
+              const li = document.createElement("li"); 
+              li.textContent=`FizzBuzz ${i}`;
+              document.getElementById("ul").appendChild(li);
+            } else if (i % fizzNum.value === 0 && i % buzzNum.value !== 0) {
+              const li = document.createElement("li");
+              li.textContent = `Fizz ${i}`;
+              document.getElementById("ul").appendChild(li);
+            } else if (i % fizzNum.value !== 0 && i % buzzNum.value === 0) {
+              const li = document.createElement("li");
+              li.textContent = `Buzz ${i}`;
+              document.getElementById("ul").appendChild(li);
+              }
+          }  
+        } else {
+          const li = document.createElement("li");
+          li.textContent = "整数値を入力してください";
+          document.getElementById("ul").appendChild(li);
+        }
+      }
+
+      function Delete() {
+        const allList = document.querySelectorAll("li");
+        for (let i = 0; i < allList.length; i++) {
+          document.getElementById("ul").removeChild(allList[i]);
+        }
+      }
+
+      document.querySelector("button").addEventListener("click", () => {
+          Delete();
+          FizzBuzz();
+      });
+      
+    </script>
+  </body>
+</html>
