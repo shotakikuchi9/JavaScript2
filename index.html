@@ -37,10 +37,8 @@
       "use strict";
 
       const fizzNum = document.getElementById("Fizz");
-      const buzzNum = document.getElementById("Buzz");
-
-      console.log(Number(buzzNum.value));
-   
+      const buzzNum = document.getElementById("Buzz");  
+      
       function FizzBuzz() {
         if (Number.isInteger(Number(fizzNum.value)) && Number.isInteger(Number(buzzNum.value)) && Number(fizzNum.value) !== 0 && Number(buzzNum.value) !== 0 ) {
           for (let i = 1; i < 100; i++) {
